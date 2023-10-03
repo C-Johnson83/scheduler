@@ -1,18 +1,6 @@
-//  Use class for "past", "present", and "future" to apply styles to the
-//  time-block divs accordingly. The javascript will need to do this by
-//  adding/removing these classes on each div by comparing the hour in the
-//  id to the current hour. The html provided below is meant to be an example
-//  demonstrating how the css provided can be leveraged to create the
-//  desired layout and colors. The html below should be removed or updated
-//  in the finished product. Remember to delete this comment once the
-//  code is implemented.
-
-
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
 
 // TODO: Add code to display the current date in the header of the page.
 $(function () {
@@ -27,8 +15,15 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
- 
-
+ var saveBtn = $(".saveBtn");
+ saveBtn.on("click", function () {
+  var timeBlockId = $(this).parent().attr("id");
+  var timeText = $(this).siblings(".text-center").text();
+  var event = $(this).siblings(".description").val();
+  localStorage.setItem(timeBlockId, event);
+  console.log(timeBlockId);
+  console.log(timeText);
+ });
 
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -39,8 +34,8 @@ $(function () {
   $(".time-block").each(function () {
     var timeBlockId = $(this).attr("id");
     var currentHour = dayjs().format("HH");
-    console.log(timeBlockId);
-    console.log(currentHour);
+    // console.log(timeBlockId);
+    // console.log(currentHour);
     if (timeBlockId > currentHour) {
       $(this).addClass("future");
     } else if (timeBlockId == currentHour) {
