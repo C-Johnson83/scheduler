@@ -18,11 +18,11 @@ $(function () {
  var saveBtn = $(".saveBtn");
  saveBtn.on("click", function () {
   var timeBlockId = $(this).parent().attr("id");
-  var timeText = $(this).siblings(".text-center").text();
-  var event = $(this).siblings(".description").val();
-  localStorage.setItem(timeBlockId, event);
+  var eventSave = $(this).siblings(".description").val();
+  localStorage.setItem(timeBlockId, eventSave);
   console.log(timeBlockId);
-  console.log(timeText);
+  console.log(eventSave);
+  console.log(localStorage);
  });
 
 
@@ -51,4 +51,11 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+$(".description").each(function () {
+  var timeBlockId = $(this).parent().attr("id");
+  var eventShow = localStorage.getItem(timeBlockId);
+  $(this).val(eventShow);
+  console.log(timeBlockId);
+  console.log(eventShow);
+});
 
