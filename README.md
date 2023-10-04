@@ -44,4 +44,7 @@ THEN the saved events persist
 
 # Mock-Up
 The following animation demonstrates the application functionality:!
-[Alt text](assets/images/05-third-party-apis-homework-demo.gif)
+[Scheduler](assets/images/05-third-party-apis-homework-demo.gif)
+
+# Deployed Application 
+https://c-johnson83.github.io/scheduler/
