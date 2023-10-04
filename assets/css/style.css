@@ -3,6 +3,8 @@ body {
   font-size: 16px;
 }
 
+
+/* the css file was already provided. Added header styling for bottom border */
 header {
   display: flex;
   flex-direction: column;
